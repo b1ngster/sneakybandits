@@ -1,63 +1,9 @@
 <?php
-session_start();
 
-//require '../app/bootstrap.php';
-echo 'hello';
-include './../app/views/default/header.php';
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+  require_once '../app/bootstrap.php';
 
-  if ($handle = opendir('./../app/views')) {
-
-    while (false !== ($entry = readdir($handle))) {
-
-        if ($entry != "." && $entry != "..") {
-
-            echo "$entry\n";
-        }
-    }
-
-    closedir($handle);
-}
-?>
-<div class="container" style="margin-top:25%">
-
-		<div class="card">
-			<h5 class="card-header card text-white bg-primary mb-3">Feeds</h5>
-			<div class="row pl-3 pr-3"> </div>
-			<div class="image-container">
-							<a href="/detail.php?id=<?php echo $row['id'] ?>"><img class="card-img-top" src="<?php echo $row['image'] ?>" alt=""></a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="/detail.php?id=<?php echo $row['id'] ?>">
-									<?php echo $row['title']; ?>
-								</a>
-							</h4>
-
-							<h5> placeholder
-								<?php //echo $row['datetime']; ?>
-							</h5>
-							<h5>
-								placeholder
-								<?php //echo $row['']; ?>
-							</h5>
-							<p class="card-text">
-								<?php //echo $row['detail'] ?>
-							</p>
-						</div>
-						<div class="card-footer">
-							<!--This is the see product button-->
-							<a href="/detail.php?id=<?php echo $row['id'] ?>" class="btn btn-primary float-right">Rea</a>
-						</div>
-		</div>
-	</div>
-
-
-
-
-
-</div>
-<!--Close Row-->
-<!-- include the Footer File -->
-
-<?php
-include('../app/views/default/footer.php'); ?>
+  // Init Core Library
+  $init = new Core;
